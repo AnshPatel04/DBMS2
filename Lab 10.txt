@@ -1,0 +1,42 @@
+-- Create the Employee table
+CREATE TABLE Employee (
+    EID INT PRIMARY KEY,
+    EName VARCHAR(100),
+    Gender VARCHAR(10),
+    JoiningDate DATETIME,
+    Salary DECIMAL(8, 2),
+    City VARCHAR(100)
+);
+
+-- Insert data into the Employee table
+INSERT INTO Employee (EID, EName, Gender, JoiningDate, Salary, City)
+VALUES 
+    (1, 'Nick', 'Male', '2013-01-01', 4000.00, 'London'),
+    (2, 'Julian', 'Female', '2014-10-01', 3000.00, 'New York'),
+    (3, 'Roy', 'Male', '2016-06-01', 3500.00, 'London'),
+    (4, 'Tom', 'Male', NULL, 4500.00, 'London'),
+    (5, 'Jerry', 'Male', '2013-02-01', 2800.00, 'Sydney'),
+    (6, 'Philip', 'Male', '2015-01-01', 7000.00, 'New York'),
+    (7, 'Sara', 'Female', '2017-08-01', 4800.00, 'Sydney'),
+    (8, 'Emily', 'Female', '2015-01-01', 5500.00, 'New York'),
+    (9, 'Michael', 'Male', NULL, 6500.00, 'London'),
+    (10, 'John', 'Male', '2015-01-01', 8800.00, 'London');
+
+-- Create the Employee table
+CREATE TABLE Employee (
+    Employee_ID INT PRIMARY KEY,
+    First_Name VARCHAR(100),
+    Last_Name VARCHAR(50),
+    Age INT,
+    Department VARCHAR(50)
+);
+
+
+-- Insert data into the Employee table
+INSERT INTO Employee (Employee_ID, First_Name, Last_Name, Age, Department)
+VALUES
+    (1, 'John', 'Doe', 30, 'HR'),
+    (2, 'Jane', 'Smith', 25, 'Finance'),
+    (3, 'Michael', 'Johnson', 35, 'IT'),
+    (4, 'Emily', 'Williams', 28, 'Marketing'),
+    (5, 'Robert', 'Brown', 22, 'IT');

@@ -1,0 +1,38 @@
+-- Create the Student table
+CREATE TABLE Student (
+    RNo INT PRIMARY KEY,          -- Roll number as Primary Key
+    Name VARCHAR(50) NOT NULL,    -- Name cannot be NULL
+    Branch VARCHAR(50) NOT NULL   -- Branch cannot be NULL
+);
+
+-- Insert data into the Student table
+INSERT INTO Student (RNo, Name, Branch)
+VALUES 
+(101, 'Raju', 'CE'),
+(102, 'Amit', 'CE'),
+(103, 'Sanjay', 'ME'),
+(104, 'Neha', 'EC'),
+(105, 'Meera', 'EE'),
+(106, 'Mahesh', 'ME');
+
+-- Query the data to verify the insertion
+SELECT * FROM Student;
+
+-- Create the Result table
+CREATE TABLE Result (
+    RNo INT FOREIGN KEY REFERENCES Student(RNo) ON DELETE SET NULL, -- Foreign Key referencing Student(RNo)
+    SPI DECIMAL(4, 2) NOT NULL                                       -- SPI as a non-null column
+);
+
+-- Insert data into the Result table
+INSERT INTO Result (RNo, SPI)
+VALUES 
+(101, 8.8),
+(102, 9.2),
+(103, 7.6),
+(104, 8.2),
+(105, 7.0),
+(106, 8.9); 
+
+-- Query the data to verify the insertion
+SELECT * FROM Result;

@@ -1,0 +1,14 @@
+-- Create the Customers table
+CREATE TABLE Customers (
+    Customer_id INT PRIMARY KEY,
+    Customer_Name VARCHAR(250) NOT NULL,
+    Email VARCHAR(50) UNIQUE
+);
+
+-- Create the Orders table
+CREATE TABLE Orders (
+    Order_id INT PRIMARY KEY,
+    Customer_id INT NOT NULL,
+    Order_date DATE NOT NULL,
+    FOREIGN KEY (Customer_id) REFERENCES Customers(Customer_id)
+);
