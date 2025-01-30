@@ -15,6 +15,5 @@ CREATE TABLE PersonLog (
     PersonID INT NOT NULL,
     PersonName VARCHAR(250) NOT NULL,
     Operation VARCHAR(50) NOT NULL,
-    UpdateDate DATETIME NOT NULL,
-    FOREIGN KEY (PersonID) REFERENCES Person(PersonID)
+    UpdateDate DATETIME NOT NULL
 );
