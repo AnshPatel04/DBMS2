@@ -20,7 +20,7 @@ SELECT * FROM Student;
 
 -- Create the Result table
 CREATE TABLE Result (
-    RNo INT FOREIGN KEY REFERENCES Student(RNo) ON DELETE SET NULL, -- Foreign Key referencing Student(RNo)
+    RNo INT FOREIGN KEY REFERENCES Student(RNo), -- Foreign Key referencing Student(RNo)
     SPI DECIMAL(4, 2) NOT NULL                                       -- SPI as a non-null column
 );
 
