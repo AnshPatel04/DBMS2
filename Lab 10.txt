@@ -23,7 +23,7 @@ VALUES
     (10, 'John', 'Male', '2015-01-01', 8800.00, 'London');
 
 -- Create the Employee table
-CREATE TABLE Employee (
+CREATE TABLE Employee2 (
     Employee_ID INT PRIMARY KEY,
     First_Name VARCHAR(100),
     Last_Name VARCHAR(50),
@@ -33,7 +33,7 @@ CREATE TABLE Employee (
 
 
 -- Insert data into the Employee table
-INSERT INTO Employee (Employee_ID, First_Name, Last_Name, Age, Department)
+INSERT INTO Employee2 (Employee_ID, First_Name, Last_Name, Age, Department)
 VALUES
     (1, 'John', 'Doe', 30, 'HR'),
     (2, 'Jane', 'Smith', 25, 'Finance'),
