@@ -1,0 +1,78 @@
+Model
+public class Student{
+	[Key]
+	public int SID { get; set;}	
+	public String SName { get; set;}
+}
+
+AppDbContext
+public class AppDbContext : DbContext {
+	public AppDbContext(DbContextOptions<AppDbContext> op): base(op){}
+	
+	public DbSet<Student> Students { get; set; }
+}
+
+Connection String in Appliction.json
+
+Add services in program.cs (for AppDbContext)
+
+add-migration Init
+update-database
+
+Controller
+[Route("api/[controller]/[action]")]
+[ApiController]
+public class StudentController : ControllerBase{
+	private AppDbContext Db;
+	public StudentController(AppDbContext D){ Db = D; }
+
+	[HttpGet]
+        public async Task<IActionResult> GetAll(){
+		return Ok(await Db.Students.ToListAsync());
+	}
+
+	[HttpGet]
+        public async Task<IActionResult> GetById(int id){
+		var student = await Db.Students.FirstOrDefaultAsync(x => x.SID == id);
+		if(student == null)
+			return NotFound();
+		return Ok(student);
+	}
+	
+	[HttpDelete]
+        public async Task<IActionResult> Delete(int id){
+		var student = await Db.Students.FirstOrDefaultAsync(x => x.SID == id);
+		if(student == null)
+			return NotFound();
+		Db.Students.Remove(student);
+		await Db.SaveChangesAsync(); 
+		return NoContent();
+	}
+	
+	[HttpPost]
+        public async Task<IActionResult> Insert([FromBody]Student s){
+		try{
+			if(s == null) return BadRequest();
+			await Db.Students.AddAsync(s);
+			await Db.SaveChangesAsync();
+			return Ok(new {MSG = "Success!"});	
+		}catch(Exception ex){
+			return StatusCode(500, "Error in insert!");
+		}
+	}
+
+	[HttpPut]
+	public async Task<IActionResult> Update(int id, [FromBody]Student s){
+		try{
+			if(id != s.SID) return BadRequest();
+			var student = await Db.Students.FirstOrDefaultAsync(x => x.SID == id);
+			if(student == null)
+				return NotFound();
+			student.SName = s.SName;
+			await Db.SaveChangesAsync();
+			return Ok(new {MSG = "Success!"});
+		}catch(Exception ex){
+			return StatusCode(500, "Error in Update!");
+		}
+	}
+}
