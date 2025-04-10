@@ -1,0 +1,40 @@
+<!-- HTML Form -->
+<form id="userForm">
+    <label>Name:</label>
+    <input type="text" name="Name" required><br>
+
+    <label>Email:</label>
+    <input type="email" name="Email" required><br>
+
+    <label>Message:</label>
+    <textarea name="Message" required></textarea><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<!-- jQuery Script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#userForm').submit(function (e) {
+        e.preventDefault();
+
+        var formData = {
+            Name: $('input[name="Name"]').val(),
+            Email: $('input[name="Email"]').val(),
+            Message: $('textarea[name="Message"]').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/User/PostUser',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function (response) {
+                alert('Form submitted successfully');
+            },
+            error: function () {
+                alert('Error submitting form');
+            }
+        });
+    });
+</script>

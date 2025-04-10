@@ -1,0 +1,43 @@
+<!-- Button to fetch users -->
+<button id="loadUsers">Load Users</button>
+
+<!-- Table to display users -->
+<table border="1" id="userTable">
+    <thead>
+        <tr>
+            <th>UserID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will be added here -->
+    </tbody>
+</table>
+
+<!-- jQuery Script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#loadUsers').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/User/GetUsers',
+            success: function (data) {
+                var tbody = $('#userTable tbody');
+                tbody.empty(); // Clear previous data
+
+                $.each(data, function (i, user) {
+                    var row = '<tr>' +
+                        '<td>' + user.UserID + '</td>' +
+                        '<td>' + user.Name + '</td>' +
+                        '<td>' + user.Email + '</td>' +
+                        '</tr>';
+                    tbody.append(row);
+                });
+            },
+            error: function () {
+                alert('Error fetching users');
+            }
+        });
+    });
+</script>
