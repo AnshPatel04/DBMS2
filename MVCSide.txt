@@ -1,0 +1,71 @@
+public class CityController : Controller
+    {
+        private readonly IConfiguration _configuration;
+        private readonly HttpClient _httpClient;
+
+        public CityController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _httpClient = new HttpClient
+            {
+                BaseAddress = new System.Uri(_configuration["WebApiBaseUrl"])
+            };
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var response = await _httpClient.GetAsync("api/city");
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                var cities = JsonConvert.DeserializeObject<List<CityModel>>(data);
+                return View(cities);
+            }
+            return View(new List<CityModel>());
+        }
+
+        public async Task<IActionResult> Add(int? CityID)
+        {
+            await LoadCountryList();
+            if (CityID.HasValue)
+            {
+                var response = await _httpClient.GetAsync($"api/city/{CityID}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    var city = JsonConvert.DeserializeObject<CityModel>(data);
+                    ViewBag.StateList = await GetStatesByCountryID(city.CountryID);
+                    return View(city);
+                }
+            }
+            return View(new CityModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(CityModel city)
+        {
+            if (ModelState.IsValid)
+            {
+                var json = JsonConvert.SerializeObject(city);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response;
+
+                if (city.CityID == null)
+                    response = await _httpClient.PostAsync("api/city", content);
+                else
+                    response = await _httpClient.PutAsync($"api/city/{city.CityID}", content);
+
+                if (response.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+            }
+            await LoadCountryList();
+            return View("Add", city);
+        }
+
+        public async Task<IActionResult> Delete(int CityID)
+        {
+            var response = await _httpClient.DeleteAsync($"api/city/{CityID}");
+            return RedirectToAction("Index");
+        }
+
+}
