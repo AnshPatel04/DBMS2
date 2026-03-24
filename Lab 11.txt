@@ -17,3 +17,6 @@ CREATE TABLE PersonLog (
     Operation VARCHAR(50) NOT NULL,
     UpdateDate DATETIME NOT NULL
 );
+
+
+https://drive.google.com/file/d/1k0GYEy9DHrUrCStRlAbtLtw2AsaJW8PU/view?usp=drivesdk
