@@ -1,0 +1,437 @@
+# Complete .NET Project Analysis and Technical Documentation
+
+## Role
+
+Act as a Senior .NET Solution Architect, Software Reverse Engineer, Database Architect, and Technical Documentation Engineer.
+
+Your task is to deeply analyze the entire existing software project and create comprehensive, accurate, structured Markdown documentation covering the complete application.
+
+I want to understand this project from the perspective of someone who has never seen its source code before but needs to understand every important part of it.
+
+This is a full-project analysis, NOT an analysis of any individual module.
+
+---
+
+# PHASE 1: COMPLETE PROJECT DISCOVERY
+
+First, inspect the entire repository and identify:
+
+1. Solution files and project files.
+2. All application projects.
+3. Backend architecture.
+4. Frontend architecture, if included.
+5. Database implementation.
+6. All business modules.
+7. Shared libraries and common components.
+8. Third-party dependencies.
+9. External services and integrations.
+10. Background services and scheduled processes.
+11. Configuration and environment management.
+12. Deployment and infrastructure files.
+
+Explore the actual source code recursively.
+
+Do not stop after inspecting the main project or a few controllers.
+
+Identify the purpose and responsibility of every important folder and project.
+
+Exclude generated files, build artifacts, packages, binaries, and irrelevant third-party source.
+
+# PHASE 2: OVERALL APPLICATION ARCHITECTURE
+
+Document the complete architecture.
+
+Analyze:
+
+- Application architecture and design patterns.
+- Project-to-project dependencies.
+- Layer separation.
+- Application startup.
+- Dependency injection.
+- Middleware pipeline.
+- Request lifecycle.
+- Configuration management.
+- Logging.
+- Exception handling.
+- Validation.
+- Caching.
+- Background processing.
+- File management.
+- External integrations.
+
+Explain how all major components communicate.
+
+Include actual class names, interfaces, method names, and file paths.
+
+Create Mermaid architecture diagrams based on the actual implementation.
+
+# PHASE 3: COMPLETE MODULE ANALYSIS
+
+This is one of the most important phases.
+
+Identify EVERY business module and feature in the application.
+
+For each module, document:
+
+1. Module name and purpose.
+2. Features and functionality.
+3. Controllers and API endpoints.
+4. Services and business logic.
+5. Repositories and data-access implementation.
+6. Models and DTOs.
+7. Database tables and relationships.
+8. Validation rules.
+9. Authentication and permissions.
+10. Dependencies on other modules.
+11. External integrations.
+12. Important business rules.
+13. Frontend pages and components, if applicable.
+
+Trace important operations from the user interface to the database and back.
+
+For example:
+
+User Action
+→ Frontend Component
+→ API Request
+→ Controller
+→ Service
+→ Repository
+→ Database
+→ Response
+→ Frontend Update
+
+Do not limit the analysis to obvious modules. Discover modules from the source code itself.
+
+Also identify shared functionality used by multiple modules.
+
+# PHASE 4: DATABASE AND DATA MODEL ANALYSIS
+
+Analyze the complete database implementation.
+
+Document:
+
+- Database technology and structure.
+- All identifiable tables.
+- Columns and data types.
+- Primary keys.
+- Foreign keys.
+- Relationships.
+- Indexes.
+- Constraints.
+- Stored procedures.
+- Functions.
+- Triggers.
+- Views.
+- Database migrations.
+- ORM mappings.
+- Transactions.
+- Data access patterns.
+- Important business entities.
+
+Explain which modules use which tables.
+
+Identify shared tables and dependencies between modules.
+
+Create Mermaid ER diagrams wherever practical.
+
+Do not invent database relationships. Mark relationships that cannot be verified.
+
+# PHASE 5: API AND BACKEND ANALYSIS
+
+Create a complete API inventory.
+
+For each endpoint, document:
+
+- HTTP method.
+- Route.
+- Controller.
+- Action method.
+- Purpose.
+- Request parameters.
+- Request DTO.
+- Response DTO.
+- Authentication requirement.
+- Authorization requirement.
+- Business service used.
+- Database dependencies.
+
+Also document:
+
+- API conventions.
+- Response structure.
+- Error responses.
+- Validation.
+- Authentication flow.
+- Authorization flow.
+- File upload/download APIs.
+- Pagination, sorting and filtering.
+- API versioning, if implemented.
+
+Trace important API operations through the complete backend.
+
+# PHASE 6: ALL SHARED AND CROSS-CUTTING SYSTEMS
+
+Identify and analyze every shared system in the application.
+
+Examples of areas to investigate include:
+
+- Authentication and authorization.
+- User and role management.
+- Permissions.
+- Workflow engines.
+- Email and notification systems.
+- Scheduling.
+- Background jobs.
+- File and document management.
+- Reporting and exports.
+- Import functionality.
+- Logging and auditing.
+- Configuration management.
+- Common utilities.
+- Search.
+- Caching.
+- Payment integrations.
+- Third-party services.
+- Multi-tenancy.
+- Data synchronization.
+
+These are examples, not a predefined list.
+
+Discover what actually exists in the project.
+
+For every identified system, explain:
+
+1. Its purpose.
+2. Its architecture.
+3. Its main classes and interfaces.
+4. Its database dependencies.
+5. Its execution flow.
+6. Its configuration.
+7. Which modules use it.
+8. Whether it is configurable or hardcoded.
+9. Its limitations and dependencies.
+
+# PHASE 7: FRONTEND ANALYSIS
+
+If frontend source code exists, analyze it completely.
+
+Document:
+
+- Framework and version.
+- Project structure.
+- Routing.
+- Pages.
+- Components.
+- Shared components.
+- State management.
+- API communication.
+- Authentication.
+- Form handling.
+- Validation.
+- UI libraries.
+- Design system.
+- Permissions and conditional rendering.
+- Error handling.
+- Reusable utilities.
+
+Map frontend pages and components to their corresponding backend APIs and business modules.
+
+# PHASE 8: MULTI-TENANCY AND DATA ISOLATION
+
+If the application supports multiple clients, investigate:
+
+- Tenant identification.
+- Tenant-specific URLs.
+- Tenant configuration.
+- Tenant-specific data.
+- Database architecture.
+- Tenant-level permissions.
+- Data isolation.
+- Tenant-specific customization.
+- Shared versus tenant-specific resources.
+
+Explain the actual implementation and identify possible security risks.
+
+Do not assume that URL-based tenant identification alone provides data security.
+
+# PHASE 9: SECURITY AND CODE QUALITY
+
+Analyze:
+
+- Authentication implementation.
+- Authorization implementation.
+- Role and permission handling.
+- Password handling.
+- Token management.
+- Data protection.
+- Input validation.
+- SQL injection prevention.
+- XSS and CSRF protections.
+- File upload security.
+- Tenant isolation.
+- Sensitive configuration handling.
+- Error handling.
+- Logging practices.
+
+Identify potential architectural and security concerns.
+
+Clearly separate confirmed vulnerabilities from areas that require further investigation.
+
+Do not expose secrets or credentials.
+
+# PHASE 10: TECHNICAL DEPENDENCIES AND INFRASTRUCTURE
+
+Document:
+
+- .NET version.
+- NuGet packages.
+- Frontend dependencies.
+- Database drivers and ORM.
+- Third-party libraries.
+- External APIs.
+- Cloud services.
+- Background processing tools.
+- Build and deployment process.
+- Docker configuration.
+- CI/CD pipelines.
+- Environment configurations.
+
+Explain why important dependencies are used, based on evidence in the source code.
+
+# PHASE 11: COMPLETE BUSINESS LOGIC AND EXECUTION FLOWS
+
+Identify important end-to-end business operations.
+
+For each operation, document:
+
+- How it starts.
+- Which component handles it.
+- Which business rules apply.
+- Which services are involved.
+- Which database records are read or modified.
+- What happens after successful execution.
+- What happens when execution fails.
+- Which other modules are affected.
+
+Create sequence diagrams for important flows.
+
+Do not document only class structures. Explain how the application actually works.
+
+# PHASE 12: ARCHITECTURAL OBSERVATIONS
+
+After understanding the application, identify:
+
+- Existing architectural strengths.
+- Tight coupling.
+- Repeated business logic.
+- Shared services.
+- Module dependencies.
+- Potential scalability limitations.
+- Technical debt.
+- Areas that are difficult to extend.
+- Existing reusable architectural patterns.
+- Important implementation decisions.
+
+Separate facts from your recommendations.
+
+Do not modify the application.
+
+---
+
+# DOCUMENTATION OUTPUT STRUCTURE
+
+Create a directory named:
+
+`project-documentation/`
+
+Generate the following files:
+
+| File | Documentation |
+|---|---|
+| README.md | Main documentation index |
+| 00-project-overview.md | Complete project introduction |
+| 01-solution-structure.md | Repository and project structure |
+| 02-overall-architecture.md | Application architecture |
+| 03-module-inventory.md | Complete module inventory |
+| 04-module-details.md | Detailed module documentation |
+| 05-database-documentation.md | Database schema and relationships |
+| 06-api-documentation.md | API inventory and execution |
+| 07-shared-systems.md | Shared and cross-cutting systems |
+| 08-workflow-and-background-processing.md | Workflows, jobs and scheduling |
+| 09-frontend-documentation.md | Frontend architecture |
+| 10-authentication-and-authorization.md | Identity, roles and permissions |
+| 11-multi-tenancy.md | Tenant architecture and isolation |
+| 12-integrations-and-dependencies.md | External services and libraries |
+| 13-security-analysis.md | Security implementation and concerns |
+| 14-business-flows.md | End-to-end business processes |
+| 15-infrastructure-and-deployment.md | Configuration, deployment and CI/CD |
+| 16-architecture-diagrams.md | Mermaid diagrams |
+| 17-technical-observations.md | Technical strengths, limitations and debt |
+| 18-unverified-areas.md | Missing information and open questions |
+
+You may create additional Markdown files or subdirectories when the project is too large for a single document.
+
+For example, individual module documentation can be separated into:
+
+`project-documentation/modules/`
+
+Do not sacrifice detail just to keep the number of files small.
+
+---
+
+# DOCUMENTATION STANDARDS
+
+Follow these rules:
+
+1. Use actual source code as the primary source of truth.
+2. Include real file paths, class names, interfaces and method names.
+3. Include actual table and column names wherever identifiable.
+4. Use Mermaid diagrams for architecture and execution flows.
+5. Use tables for inventories and structured information.
+6. Explain technical concepts in understandable language.
+7. Avoid generic descriptions that could apply to any .NET project.
+8. Do not invent functionality.
+9. Mark uncertain findings as "Needs verification".
+10. Identify source-code references for important findings.
+11. Avoid unnecessary duplication between Markdown files.
+12. Keep documentation organized and maintainable.
+13. Never expose credentials, secrets, tokens or private configuration values.
+14. Document both what exists and what does not appear to exist, where relevant.
+
+# FINAL VERIFICATION
+
+Before finishing:
+
+- Verify that all documentation files exist.
+- Verify that the module inventory covers all discovered business modules.
+- Verify that important modules have been traced through frontend, backend and database where applicable.
+- Verify that shared systems and integrations have been identified.
+- Verify that diagrams match the source code.
+- Verify that no secrets have been exposed.
+- Check for incomplete analysis and list it explicitly.
+- Do not claim complete coverage if some source areas could not be inspected.
+
+Finally, provide a summary containing:
+
+1. What the application does.
+2. Its overall architecture.
+3. Number and names of identified business modules.
+4. Database architecture.
+5. Main shared systems.
+6. Important technical dependencies.
+7. Major architectural observations.
+8. Areas requiring further investigation.
+9. List of generated documentation files.
+
+## STRICT RESTRICTIONS
+
+- Do not modify existing application code.
+- Do not change database schema.
+- Do not run migrations.
+- Do not install or upgrade dependencies.
+- Do not change project configuration.
+- Do not delete or rename existing files.
+- Only create and modify documentation inside `project-documentation/`.
+
+Begin with repository discovery, then perform the analysis systematically. Do not generate superficial documentation after inspecting only a few files.
