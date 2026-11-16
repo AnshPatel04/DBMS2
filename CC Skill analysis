@@ -1,0 +1,35 @@
+# Task: Analyze my repeated development workflows and create reusable Claude Skills
+
+Analyze my existing .NET project and identify development tasks that I repeatedly perform or that follow predictable processes.
+
+I want to create a reusable Skill library for Claude Code.
+
+## Requirements
+
+1. Understand the existing project architecture before creating Skills.
+2. Identify useful workflows such as:
+   - Bug investigation and fixing.
+   - New feature development.
+   - SQL query and stored procedure review.
+   - Code review.
+   - Email scheduling and event-trigger investigation.
+   - Role-based permission analysis.
+   - Workflow analysis.
+3. Identify which instructions should be common across Skills and which should be specific to individual Skills.
+4. Create suitable SKILL.md files inside `.claude/skills/`.
+5. Include appropriate descriptions so Claude can automatically discover relevant Skills.
+6. Use reference files when detailed instructions should be separated from the main Skill.
+7. Avoid duplicating instructions across Skills.
+8. Do not invent project architecture, database structures, business rules or coding conventions. Verify them from the actual source code.
+9. Do not modify existing application functionality.
+10. Explain how to invoke and test each generated Skill.
+
+## Deliverables
+
+- A recommended Skill library structure.
+- Complete SKILL.md files.
+- Supporting reference files where useful.
+- Instructions for testing the Skills.
+- A report explaining how these Skills will improve my development workflow.
+
+First analyze and propose the Skill structure. Then create the files after presenting the proposed structure for my review.
