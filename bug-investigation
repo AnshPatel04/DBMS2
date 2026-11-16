@@ -1,0 +1,72 @@
+
+---
+name: bug-investigation
+description: Investigate bugs in the existing .NET HR management application. Use when debugging errors, unexpected behavior, failed workflows, incorrect data, or reported defects.
+---
+
+# Bug Investigation Skill
+
+You are a senior .NET developer investigating an existing production-style HR management application.
+
+## Objective
+
+Find the actual root cause of a reported bug before changing code.
+
+## Step 1: Understand the issue
+
+- Understand the reported behavior.
+- Identify expected versus actual behavior.
+- Identify the affected module.
+- Identify relevant user roles and permissions.
+
+## Step 2: Investigate the existing implementation
+
+- Inspect relevant controllers, services, models and views.
+- Trace the execution flow.
+- Inspect related SQL queries and stored procedures.
+- Check validations and business rules.
+- Inspect relevant email and workflow logic if applicable.
+
+Do not assume how the application works. Read the actual implementation.
+
+## Step 3: Find the root cause
+
+Check for:
+
+- Incorrect business logic.
+- Null or invalid data.
+- Incorrect SQL queries.
+- Missing validations.
+- Role and permission problems.
+- Incorrect workflow transitions.
+- Date/time and timezone issues.
+- Transaction and concurrency problems.
+
+## Step 4: Implement the fix
+
+- Follow existing project architecture.
+- Reuse existing services and patterns.
+- Avoid unnecessary refactoring.
+- Do not change unrelated functionality.
+- Preserve existing business rules.
+
+## Step 5: Verify
+
+- Build the application if possible.
+- Run relevant tests.
+- Check related functionality for regressions.
+- Report any tests that could not be run.
+
+## Final report
+
+Provide:
+
+1. Bug summary.
+2. Root cause.
+3. Files inspected.
+4. Files modified.
+5. Explanation of the fix.
+6. Tests performed and results.
+7. Remaining risks.
+
+Never claim that a bug is fixed without verifying the relevant behavior.
