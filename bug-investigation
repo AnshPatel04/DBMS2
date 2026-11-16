@@ -70,3 +70,11 @@ Provide:
 7. Remaining risks.
 
 Never claim that a bug is fixed without verifying the relevant behavior.
+
+
+================================================================================================================================================================
+
+Investigate why the employee leave approval email
+is not being sent after manager approval.
+
+Find the root cause and fix it.
